@@ -2,28 +2,42 @@ package UserAuthentication;
 import java.util.HashMap;
 
 public class Users {
-    private HashMap<String, User> Users = new HashMap<String, User>();
+    private static HashMap<String, User> Users = new HashMap<String, User>();
 
-    public Users() {
-        this.Users = new HashMap<String, User>();
-    }
-
-    public void addUser(User User) {
-        if(this.Users.containsKey(User.getUsername())){
+    public static void addUser(User User) {
+        if(Users.containsKey(User.getUsername())){
             System.out.println("User already exists!");
             return;
         }
-        this.Users.put(User.getUsername(), User);
+        Users.put(User.getUsername(), User);
         System.out.println("User added successfully!");
     }
 
-    public void removeUser(String username) {
-        if(!this.Users.containsKey(username)){
+    public static void removeUser(String username) {
+        if(Users.containsKey(username)){
             System.out.println("User does not exist!");
             return;
         }
-        this.Users.remove(username);
+        Users.remove(username);
         System.out.println("User removed successfully!");
+    }
+
+    public static User getUser(String username) {
+        if(!Users.containsKey(username)){
+            System.out.println("User does not exist!");
+            return null;
+        }
+        return Users.get(username);
+    }
+
+    public static boolean exists(String username) {
+        return Users.containsKey(username);
+    }
+
+    public static void printUsers() {
+        for (String username : Users.keySet()) {
+            Users.get(username).printDetails();
+        }
     }
 
 }

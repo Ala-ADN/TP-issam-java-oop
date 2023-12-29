@@ -7,16 +7,15 @@ public class Phone extends Product{
     private int storage;
     private int size;
 
-    public Phone() {
-        super();
-        Scanner sc = new Scanner(System.in);
+    public Phone(Scanner sc) {
+        super(sc);
         System.out.println("Enter RAM: ");
         this.ram = sc.nextInt();
         System.out.println("Enter storage: ");
         this.storage = sc.nextInt();
         System.out.println("Enter size: ");
         this.size = sc.nextInt();
-        sc.close();
+        sc.nextLine();
     }
 
     public Phone(String name, double price, int quantity, int ram, int storage, int size) {
@@ -37,8 +36,11 @@ public class Phone extends Product{
 
     public String getCategory() { return "Phone"; }
 
-    public void update() {
-        Scanner sc = new Scanner(System.in);
+    public Product clone() {
+        return new Phone(this.name, this.price, this.quantity, this.ram, this.storage, this.size);
+    }
+
+    public void update(Scanner sc) {
         System.out.println("Enter new name: ");
         this.name = sc.nextLine();
         System.out.println("Enter new price: ");
@@ -51,6 +53,7 @@ public class Phone extends Product{
         this.storage = sc.nextInt();
         System.out.println("Enter new size: ");
         this.size = sc.nextInt();
-        sc.close();
+        sc.nextLine();
+        System.out.println("Product updated successfully");
     }
 }

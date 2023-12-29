@@ -7,18 +7,15 @@ public class Desktop extends Product {
     protected String gpu;
     protected int ram;
 
-    public Desktop() {
-        super();
-        Scanner sc = new Scanner(System.in);
+    public Desktop(Scanner sc) {
+        super(sc);
         System.out.print("Enter CPU: ");
         this.cpu = sc.nextLine();
         System.out.print("Enter GPU: ");
         this.gpu = sc.nextLine();
         System.out.print("Enter RAM: ");
         this.ram = sc.nextInt();
-        sc.close();
     }
-
     public Desktop(String name, double price, int quantity, String cpu, String gpu, int ram) {
         super(name, price, quantity);
         this.cpu = cpu;
@@ -37,20 +34,26 @@ public class Desktop extends Product {
 
     public String getCategory() { return "Desktop"; }
 
-    public void update() {
-        Scanner sc = new Scanner(System.in);
+    public Product clone() {
+        return new Desktop(this.name, this.price, this.quantity, this.cpu, this.gpu, this.ram);
+    }
+
+    public void update(Scanner sc) {
         System.out.print("Enter new name: ");
         this.name = sc.nextLine();
         System.out.print("Enter new price: ");
         this.price = sc.nextDouble();
+        sc.nextLine();
         System.out.print("Enter new quantity: ");
         this.quantity = sc.nextInt();
+        sc.nextLine();
         System.out.print("Enter new CPU: ");
         this.cpu = sc.nextLine();
         System.out.print("Enter new GPU: ");
         this.gpu = sc.nextLine();
         System.out.print("Enter new RAM: ");
         this.ram = sc.nextInt();
-        sc.close();
+        sc.nextLine();
+        System.out.println("Product updated successfully");
     }
 }

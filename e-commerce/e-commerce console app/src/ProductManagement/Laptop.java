@@ -6,14 +6,12 @@ public class Laptop extends Desktop {
     private String resolution;
     private int refreshRate; 
 
-    public Laptop() {
-        super();
-        Scanner sc = new Scanner(System.in);
+    public Laptop(Scanner sc) {
+        super(sc);
         System.out.print("Enter resolution: ");
         this.resolution = sc.nextLine();
         System.out.print("Enter refresh rate: ");
         this.refreshRate = sc.nextInt();
-        sc.close();
     }
 
     public Laptop(String name, double price, int quantity, String cpu, String gpu, int ram, String resolution, int refreshRate) {
@@ -37,8 +35,12 @@ public class Laptop extends Desktop {
     public String getCategory() { return "Laptop"; }
 
     @Override
-    public void update() {
-        Scanner sc = new Scanner(System.in);
+    public Product clone() {
+        return new Laptop(this.name, this.price, this.quantity, this.cpu, this.gpu, this.ram, this.resolution, this.refreshRate);
+    }
+
+    @Override
+    public void update(Scanner sc) {
         System.out.print("Enter new name: ");
         this.name = sc.nextLine();
         System.out.print("Enter new price: ");
@@ -46,15 +48,18 @@ public class Laptop extends Desktop {
         System.out.print("Enter new quantity: ");
         this.quantity = sc.nextInt();
         System.out.print("Enter new CPU: ");
+        sc.nextLine();
         this.cpu = sc.nextLine();
         System.out.print("Enter new GPU: ");
         this.gpu = sc.nextLine();
         System.out.print("Enter new RAM: ");
         this.ram = sc.nextInt();
         System.out.print("Enter new resolution: ");
+        sc.nextLine();
         this.resolution = sc.nextLine();
         System.out.print("Enter new refresh rate: ");
         this.refreshRate = sc.nextInt();
-        sc.close();
+        sc.nextLine();
+        System.out.println("Product updated successfully");
     }
 }

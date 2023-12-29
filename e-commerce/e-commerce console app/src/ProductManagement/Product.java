@@ -7,8 +7,7 @@ public abstract class Product {
     double price;
     int quantity;
 
-    public Product() {
-        Scanner sc = new Scanner(System.in);
+    public Product(Scanner sc) {
         System.out.print("Enter name: ");
         this.name = sc.nextLine();
         do {
@@ -19,7 +18,6 @@ public abstract class Product {
             System.out.print("Enter quantity: ");
             this.quantity = sc.nextInt();
         } while (this.quantity < 0);
-        sc.close();
     }
 
     public Product(String name, double price, int quantity) {
@@ -31,27 +29,33 @@ public abstract class Product {
     public String getName() { return this.name; }
     public double getPrice() { return this.price; }
     public int getQuantity() { return this.quantity; }
-
+    
     public void setPrice(double price) { 
-        if(price > 0)
+        if(price > 0) {
             this.price = price;
-        else
-            System.out.println("Price cannot be negative");
+        } else {
+            System.out.println("Price must be positive");
+        }
      } 
     public void setQuantity(int quantity) {
-        if(quantity > 0)
+        if(quantity >= 0) {
             this.quantity = quantity;
-        else
+        } else {
             System.out.println("Quantity cannot be negative");
+            throw new IllegalArgumentException("Quantity cannot be negative");
+        }
     }
     public void addQuantity(int quantity) { 
-        if(this.quantity + quantity > 0)
+        if(this.quantity + quantity >= 0){
             this.quantity += quantity;
-        else
-            System.out.println("Quantity cannot be negative");
+        }else{
+            System.out.println("Quantity cannot be negative"+this.quantity+" "+quantity);
+            throw new IllegalArgumentException("Quantity cannot be negative");
+        }
     }
 
     public abstract void printDetails();
     public abstract String getCategory();
-    public abstract void update();
+    public abstract void update(Scanner sc);
+    public abstract Product clone();
 }
