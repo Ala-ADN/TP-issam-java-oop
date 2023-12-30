@@ -1,11 +1,14 @@
 package ProductManagement;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Product {
     String name;
     double price;
     int quantity;
+    ArrayList<Rating> ratings = new ArrayList<Rating>();
+    double averageRating = 0;
 
     public Product(Scanner sc) {
         System.out.print("Enter name: ");
@@ -52,6 +55,25 @@ public abstract class Product {
             System.out.println("Quantity cannot be negative"+this.quantity+" "+quantity);
             throw new IllegalArgumentException("Quantity cannot be negative");
         }
+    }
+
+    public void addRating(Scanner sc, String username) {
+        System.out.print("Enter rating: ");
+        int rating = sc.nextInt();
+        for(Rating r : ratings) {
+            if(r.getUsername().equals(username)) {
+                int aux = r.getRating();
+                r.setRating(rating);
+                averageRating = (averageRating * ratings.size() - aux + rating) / ratings.size();
+                return;
+            }
+        }
+        if(rating < 0 || rating > 5) {
+            System.out.println("Rating must be between 0 and 5");
+            return;
+        }
+        ratings.add(new Rating(rating, username));
+        averageRating = (averageRating * (ratings.size() - 1) + rating) / ratings.size();
     }
 
     public abstract void printDetails();

@@ -36,12 +36,11 @@ public class TestShopping {
 
         System.out.println("Inventory");
         Products.printInventory();
-        // c.modifyProductQuantity(sc);
+        c.modifyProductQuantity(sc);
 
-        // c.viewCart();
+        c.viewCart();
 
-        // c.checkout(999999999, "ala");
 
-        // Orders.printOrders();
+        Orders.printOrders();
     }
 }

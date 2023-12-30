@@ -1,18 +1,25 @@
-## Getting Started
+# E-Commerce Console App
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This is a console-based e-commerce application showcasing OOP concepts aquired in class.
+It should enable users to perform typical e-commerce tasks
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+- User authentication: Users can create an account, log in, and log out.
+- Product browsing: Users can view a list of available products and dynamically search for specific products.
+- Product details: Users can view detailed information about a product, including its price, description, and availability.
+- Shopping cart: Users can add products to their shopping cart, view the contents of their cart, and remove items from the cart as well as update its contents.
+- Checkout: Users can proceed to checkout and complete their purchase with their preferred payment method.
+- Order history: Users can view their past orders and track the status of their current orders.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Installation
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+1. Clone the repository: `git clone https://github.com/Ala-ADN/TP-java-oop`
+2. Navigate to the project directory: `cd e-commerce-console-app`
+3. Run Main
+No additional dependencies needed
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Usage
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+1. Start the application: `npm start`
+2. Follow the on-screen instructions to navigate through the app and interact with its features.

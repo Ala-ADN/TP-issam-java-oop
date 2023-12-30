@@ -84,8 +84,9 @@ public class Admin extends User {
             System.out.println("3. Update product");
             System.out.println("4. View product");
             System.out.println("5. View inventory");
-            System.out.println("6. Ban user");
-            System.out.println("7. Logout");
+            System.out.println("6.Search product");
+            System.out.println("7. Ban user");
+            System.out.println("8. Logout");
             System.out.println("================================");
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -108,9 +109,12 @@ public class Admin extends User {
                     viewInventory();
                     break;
                 case 6:
-                    banUser(sc);
+                    dynamicSearch(sc);
                     break;
                 case 7:
+                    banUser(sc);
+                    break;
+                case 8:
                     System.out.println("Goodbye!");
                     exit = true;
                     break;

@@ -45,6 +45,10 @@ public class Cart {
     public void removeFromCart(Scanner sc){
         System.out.print("Enter product name: ");
         String name = sc.nextLine();
+        if(!cart.containsKey(name)){
+            System.out.println("Product does not exist in cart!");
+            return;
+        }
         Product p = cart.get(name);
         Products.modifyQuantity(name, p.getQuantity());
         total -= p.getPrice() * p.getQuantity();
@@ -54,6 +58,10 @@ public class Cart {
     public void modifyProductQuantity(Scanner sc){
         System.out.print("Enter product name: ");
         String name = sc.nextLine();
+        if(!cart.containsKey(name)){
+            System.out.println("Product does not exist in cart!");
+            return;
+        }
         Product p = cart.get(name);
         System.out.print("Enter new quantity: ");
         int quantity = sc.nextInt();
@@ -79,20 +87,28 @@ public class Cart {
 
     public double getTotal() { return this.total; }
 
-    public double checkout(double balance,String username){
-        if(balance < total){
-            System.out.println("Insufficient balance!");
-            return balance;
-        }
+    public void checkout(String username,Scanner sc){
         for (String name : cart.keySet()) {
             Product p = cart.get(name);
             Products.modifyQuantity(name, -p.getQuantity());
         }
-        balance -= total;
-        Order o = new Order(username, this);
+        System.out.print("Select shipping method[pickup/regular/express]: ");
+        Shipping shipping = Shipping.valueOf(sc.nextLine());
+        switch (shipping) {
+            case pickup:
+                break;
+            case regular:
+                this.total += 5;
+                break;
+            case express:
+                this.total += 5 + this.total * 0.1;
+                break;
+            default:
+                break;
+        }
+        Order o = new Order(username, this, shipping);
         Orders.addOrder(o);
         System.out.println("Checkout successful!");
-        return balance;
     }
 
     public void dismissCart(){

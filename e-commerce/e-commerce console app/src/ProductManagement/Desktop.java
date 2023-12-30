@@ -43,7 +43,6 @@ public class Desktop extends Product {
         this.name = sc.nextLine();
         System.out.print("Enter new price: ");
         this.price = sc.nextDouble();
-        sc.nextLine();
         System.out.print("Enter new quantity: ");
         this.quantity = sc.nextInt();
         sc.nextLine();

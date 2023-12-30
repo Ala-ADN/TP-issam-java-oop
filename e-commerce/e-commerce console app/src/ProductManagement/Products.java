@@ -2,7 +2,6 @@ package ProductManagement;
 
 import java.util.HashMap;
 import java.util.Scanner;
-
 public class Products {
     private static HashMap<String, Product> Products = new HashMap<String, Product>();
 
@@ -32,6 +31,15 @@ public class Products {
         return Products.get(name);
     }
 
+    public static void dynamicSearch(String name) {
+        for (String pname : Products.keySet()) {
+            if(pname.contains(name)){
+                Product p = Products.get(pname);
+                System.out.println(p.getCategory() + " " + pname + ": " + p.getPrice() + "TND (" + p.getQuantity()+")");
+            }
+        }
+    }
+
     public static void updateProduct(String name, Scanner sc) {
         if(!Products.containsKey(name)){
             System.out.println("Product does not exist!");
@@ -52,7 +60,6 @@ public class Products {
         Products.put(name, pp);
     }
 
-
     public static void printInventory() {
         for (String name : Products.keySet()) {
             Product p = Products.get(name);
@@ -60,9 +67,23 @@ public class Products {
         }
     }
 
+    public static void filterByPrice(double min, double max) {
+        for (String name : Products.keySet()) {
+            Product p = Products.get(name);
+            if(p.getPrice() >= min && p.getPrice() <= max)
+                System.out.println(p.getCategory() + " " + name + ": " + p.getPrice() + "TND (" + p.getQuantity()+")");
+        }
+    }
+
+    public static void filterByCategory(String category) {
+        for (String name : Products.keySet()) {
+            Product p = Products.get(name);
+            if(p.getCategory().equals(category))
+                System.out.println(p.getCategory() + " " + name + ": " + p.getPrice() + "TND (" + p.getQuantity()+")");
+        }
+    }
+    
     public static boolean exists(String name) {
         return Products.containsKey(name);
     }
-
-    
 }

@@ -3,10 +3,12 @@ package Shopping;
 public class Order {
     private String username;
     private Cart purchases;
+    private Shipping shipping;
 
-    public Order(String username, Cart purchases) {
+    public Order(String username, Cart purchases, Shipping shipping) {
         this.username = username;
         this.purchases = purchases;
+        this.shipping = shipping;
     }
 
     public String getUsername() { return this.username; }

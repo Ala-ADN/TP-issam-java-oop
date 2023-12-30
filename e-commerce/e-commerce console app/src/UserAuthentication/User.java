@@ -31,6 +31,12 @@ public abstract class User {
         p.printDetails();
     }
 
+    public void dynamicSearch(Scanner sc){
+        System.out.print("Enter search query: ");
+        String query = sc.nextLine();
+        Products.dynamicSearch(query);
+    }
+
     public void viewInventory(){
         Products.printInventory();
     }
