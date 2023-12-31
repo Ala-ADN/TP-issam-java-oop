@@ -20,7 +20,7 @@ It should enable users to perform typical e-commerce tasks.
 ## Design Decisions
 
 - The app is designed to be as modular as possible, each class is responsible for a specific set of tasks adhering to the Single Responsibility Principle.
-- The app is designed to be as extensible as possible, new features can be added with minimal changes to the existing codebase.
+- The app is designed to be as extensible as possible, new features can be added with minimal changes to the existing codebase, nested menus enable the addition of new features without having to change the main menu.
 - The Admin class applies the Singleton design pattern to ensure that only one instance of the class is created, this is done deliberately to reduce unnecessary complexity as multiple instances serve indistinguishable functionality and are thus redundant.
 - The Singleton design pattern is also applied to the Inventory and Orders classes as only one instance of each is needed.
 - The Login class applies the Factory design pattern to create instances of the User class based on the user's role, it also insures that only one user can be logged in at a time so they can manage shared resources safely.
