@@ -1,5 +1,5 @@
 package PaymentProcessing;
 
-public interface PaymentStartegy {
+public interface PaymentStrategy {
     boolean pay(double amount);
 }

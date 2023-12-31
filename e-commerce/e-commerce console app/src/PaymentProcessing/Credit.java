@@ -1,6 +1,6 @@
 package PaymentProcessing;
 
-public class Credit implements PaymentStartegy {
+public class Credit implements PaymentStrategy {
     private double balance;
 
     public Credit(double balance) {

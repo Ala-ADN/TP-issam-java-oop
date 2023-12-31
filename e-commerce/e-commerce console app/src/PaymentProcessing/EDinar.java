@@ -2,7 +2,7 @@ package PaymentProcessing;
 
 import java.util.Scanner;
 
-public class EDinar implements PaymentStartegy{
+public class EDinar implements PaymentStrategy{
     private String cardNumber;
     private String cvv;
 

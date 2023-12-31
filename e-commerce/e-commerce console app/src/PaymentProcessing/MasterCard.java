@@ -2,7 +2,7 @@ package PaymentProcessing;
 
 import java.util.Scanner;
 
-public class MasterCard implements PaymentStartegy {
+public class MasterCard implements PaymentStrategy {
     private String cardNumber;
     private String cvv;
     private String expiryDate;
