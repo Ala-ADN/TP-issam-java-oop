@@ -20,6 +20,7 @@ public abstract class Product {
         do {
             System.out.print("Enter quantity: ");
             this.quantity = sc.nextInt();
+            sc.nextLine();
         } while (this.quantity < 0);
     }
 
@@ -60,6 +61,7 @@ public abstract class Product {
     public void addRating(Scanner sc, String username) {
         System.out.print("Enter rating: ");
         int rating = sc.nextInt();
+        sc.nextLine();
         for(Rating r : ratings) {
             if(r.getUsername().equals(username)) {
                 int aux = r.getRating();

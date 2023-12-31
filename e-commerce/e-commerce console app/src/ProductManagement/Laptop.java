@@ -12,6 +12,7 @@ public class Laptop extends Desktop {
         this.resolution = sc.nextLine();
         System.out.print("Enter refresh rate: ");
         this.refreshRate = sc.nextInt();
+        sc.nextLine();
     }
 
     public Laptop(String name, double price, int quantity, String cpu, String gpu, int ram, String resolution, int refreshRate) {
@@ -29,6 +30,8 @@ public class Laptop extends Desktop {
         System.out.println("Refresh Rate: " + this.refreshRate);
         System.out.println("Price: " + this.price + "TND");
         System.out.println("Quantity: " + this.quantity);
+        if(this.averageRating != 0){System.out.println(this.averageRating+"/5 Stars");}
+        System.out.println("---------------------------");
     }
 
     @Override
@@ -47,15 +50,15 @@ public class Laptop extends Desktop {
         this.price = sc.nextDouble();
         System.out.print("Enter new quantity: ");
         this.quantity = sc.nextInt();
-        System.out.print("Enter new CPU: ");
         sc.nextLine();
+        System.out.print("Enter new CPU: ");
         this.cpu = sc.nextLine();
         System.out.print("Enter new GPU: ");
         this.gpu = sc.nextLine();
         System.out.print("Enter new RAM: ");
         this.ram = sc.nextInt();
-        System.out.print("Enter new resolution: ");
         sc.nextLine();
+        System.out.print("Enter new resolution: ");
         this.resolution = sc.nextLine();
         System.out.print("Enter new refresh rate: ");
         this.refreshRate = sc.nextInt();

@@ -11,8 +11,10 @@ public class Phone extends Product{
         super(sc);
         System.out.println("Enter RAM: ");
         this.ram = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter storage: ");
         this.storage = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter size: ");
         this.size = sc.nextInt();
         sc.nextLine();
@@ -32,6 +34,8 @@ public class Phone extends Product{
         System.out.println("Size: " + this.size +" inches");
         System.out.println("Price: " + this.price + "TND");
         System.out.println("Quantity: " + this.quantity);
+        if(this.averageRating != 0){System.out.println(this.averageRating+"/5 Stars");}
+        System.out.println("---------------------------");
     }
 
     public String getCategory() { return "Phone"; }
@@ -47,10 +51,13 @@ public class Phone extends Product{
         this.price = sc.nextDouble();
         System.out.println("Enter new quantity: ");
         this.quantity = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter new RAM: ");
         this.ram = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter new storage: ");
         this.storage = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter new size: ");
         this.size = sc.nextInt();
         sc.nextLine();

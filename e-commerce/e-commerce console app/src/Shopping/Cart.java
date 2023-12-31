@@ -29,6 +29,7 @@ public class Cart {
             System.out.println("Quantity not available");
             System.out.print("Enter quantity: ");
             quantity = sc.nextInt();
+            sc.nextLine();
         }
         p.setQuantity(quantity);
         Products.modifyQuantity(name, -quantity);

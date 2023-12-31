@@ -15,6 +15,7 @@ public class Desktop extends Product {
         this.gpu = sc.nextLine();
         System.out.print("Enter RAM: ");
         this.ram = sc.nextInt();
+        sc.nextLine();
     }
     public Desktop(String name, double price, int quantity, String cpu, String gpu, int ram) {
         super(name, price, quantity);
@@ -30,6 +31,8 @@ public class Desktop extends Product {
         System.out.println("RAM: " + this.ram + "GB");
         System.out.println("Price: " + this.price + "TND");
         System.out.println("Quantity: " + this.quantity);
+        if(this.averageRating != 0){System.out.println(this.averageRating+"/5 Stars");}
+        System.out.println("---------------------------");
     }
 
     public String getCategory() { return "Desktop"; }

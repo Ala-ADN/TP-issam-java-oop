@@ -4,7 +4,7 @@ import java.util.Scanner;
 import PaymentProcessing.*;
 import ProductManagement.Product;
 import ProductManagement.Products;
-import Shopping.Cart;
+import Shopping.*;
 
 public class Customer extends User {
     private Credit credit;
@@ -88,7 +88,7 @@ public class Customer extends User {
 
     public void UserMenu(Scanner sc){
         int choice = 0;
-        while(choice != 10){
+        while(choice != 11){
             System.out.println("=========================");
             System.out.println("1. View product");
             System.out.println("2. View inventory");
@@ -98,11 +98,13 @@ public class Customer extends User {
             System.out.println("6. Dismiss cart");
             System.out.println("7. Modify product quantity");
             System.out.println("8. Checkout");
-            System.out.println("9. Search product");
-            System.out.println("10. Logout");
+            System.out.println("9. View orders");
+            System.out.println("10. Search product");
+            System.out.println("11. Logout");
             System.out.println("=========================");
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
+            sc.nextLine();
             switch (choice) {
                 case 1:
                     viewProduct(sc);
@@ -129,10 +131,12 @@ public class Customer extends User {
                     checkout(sc);
                     break;
                 case 9:
-                    System.out.println("Searching");
-                    dynamicSearch(sc);
+                    Orders.printOrders(this.username);
                     break;
                 case 10:
+                    dynamicSearch(sc);
+                    break;
+                case 11:
                     System.out.println("Goodbye!");
                     break;
                 default:

@@ -3,6 +3,7 @@ package UserAuthentication;
 import java.util.Scanner;
 
 import ProductManagement.*;
+import Shopping.Orders;
 
 public class Admin extends User {
     private static boolean exists = false;
@@ -84,9 +85,10 @@ public class Admin extends User {
             System.out.println("3. Update product");
             System.out.println("4. View product");
             System.out.println("5. View inventory");
-            System.out.println("6.Search product");
+            System.out.println("6. Search product");
             System.out.println("7. Ban user");
-            System.out.println("8. Logout");
+            System.out.println("8. View orders");
+            System.out.println("9. Logout");
             System.out.println("================================");
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -115,6 +117,9 @@ public class Admin extends User {
                     banUser(sc);
                     break;
                 case 8:
+                    Orders.printOrders();
+                    break;
+                case 9:
                     System.out.println("Goodbye!");
                     exit = true;
                     break;
