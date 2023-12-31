@@ -88,7 +88,7 @@ public class Customer extends User {
 
     public void UserMenu(Scanner sc){
         int choice = 0;
-        while(choice != 11){
+        while(choice != 12){
             System.out.println("=========================");
             System.out.println("1. View product");
             System.out.println("2. View inventory");
@@ -100,7 +100,8 @@ public class Customer extends User {
             System.out.println("8. Checkout");
             System.out.println("9. View orders");
             System.out.println("10. Search product");
-            System.out.println("11. Logout");
+            System.out.println("11. Rate product");
+            System.out.println("12. Logout");
             System.out.println("=========================");
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
@@ -137,6 +138,9 @@ public class Customer extends User {
                     dynamicSearch(sc);
                     break;
                 case 11:
+                    addRating(sc);
+                    break;
+                case 12:
                     System.out.println("Goodbye!");
                     break;
                 default:
