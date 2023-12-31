@@ -1,7 +1,7 @@
 # E-Commerce Console App
 
-This is a console-based e-commerce application showcasing OOP concepts acquired in class.
-It should enable users to perform typical e-commerce tasks
+This is a console-based e-commerce application showcasing OOP concepts acquired in class such as inheritance, polymorphism, encapsulation, abstraction, and design patterns.
+It should enable users to perform typical e-commerce tasks.
 
 ## Features
 
