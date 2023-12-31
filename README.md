@@ -1,1 +1,1 @@
-## This repo contains the required assinments for OOP Workshop
+## This repo contains the required assignments for OOP Workshop
